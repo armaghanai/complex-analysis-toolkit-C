@@ -1,0 +1,23 @@
+#ifndef CVT_COMPLEX_H
+#define CVT_COMPLEX_H
+
+#ifdef __cplusplus // makes it compatible for C++
+extern "C" {
+#endif
+
+typedef struct cvt_complex;
+
+cvt_complex create_complex(double, double);
+cvt_complex create_complex_from_polar(double,double);
+//cvt_complex create_complex_from_polar(cvt_complex_polar);
+cvt_complex create_from_string(const char*);
+void display_complex(double, double);
+double argument(cvt_complex);
+double modulus(cvt_complex);
+
+#ifdef __cplusplus
+}
+#endif
+
+
+#endif CVT_COMPLEX_H
