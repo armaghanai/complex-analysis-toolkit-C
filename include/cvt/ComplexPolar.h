@@ -5,7 +5,10 @@
 extern "C" {
 #endif
 //start from here 
-typedef struct cvt_complex_polar;
+typedef struct {
+    double modulus;
+    double argument;
+}cvt_complex_polar;
 
 cvt_complex_polar create_complex_polar(double,double);
 //cvt_complex_polar create_complex_polar_from_cartesian(cvt_complex);

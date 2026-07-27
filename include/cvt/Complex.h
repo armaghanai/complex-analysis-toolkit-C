@@ -5,7 +5,10 @@
 extern "C" {
 #endif
 
-typedef struct cvt_complex;
+typedef struct {
+    double real;
+    double imaginary;
+}cvt_complex;
 
 cvt_complex create_complex(double, double);
 cvt_complex create_complex_from_polar(double,double);
@@ -13,8 +16,8 @@ cvt_complex create_complex_from_polar(double,double);
 //cvt_complex_polar convert_to_polar(cvt_complex);
 cvt_complex create_from_string(const char*);
 void display_complex(double, double);
-double argument(cvt_complex);
-double modulus(cvt_complex);
+double cvt_argument(cvt_complex);
+double cvt_modulus(cvt_complex);
 
 #ifdef __cplusplus
 }

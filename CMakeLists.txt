@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 add_library(cvt STATIC
-    src/complex.c
+    src/cvt/complex.c
 )
 
 target_include_directories(cvt
