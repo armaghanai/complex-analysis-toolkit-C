@@ -12,6 +12,8 @@ cvt_complex_polar create_complex_polar(double modulus,double argument)
 
     return z;
 }
+
+
 cvt_complex_polar create_complex_polar_from_cartesian(cvt_complex z)
 {
     cvt_complex_polar w;
@@ -22,13 +24,16 @@ cvt_complex_polar create_complex_polar_from_cartesian(cvt_complex z)
     return w;
 }
 
-cvt_complex_polar create_from_string(const char*);
+cvt_complex_polar create_from_string(const char* polar_string)
+{
+
+}
 
 void display_complex_polar(cvt_complex_polar z)
 {
     if(z.modulus == 0)
     {
-        printf('0');
+        printf("0");
         return;
     }
 
@@ -49,6 +54,21 @@ cvt_complex_polar complex_square(cvt_complex_polar z)
     return complex_power(z,2);
 }
 
+double convert_to_principal_argument(double argument)
+{
+    // converts any angle in the range of (-PI,PI]
+    argument = fmod(argument, TWO_PI);
+
+    if(argument < 0.0)
+        argument += TWO_PI;
+
+    if(argument > PI)
+        argument -= TWO_PI;
+
+    return argument;
+
+}
+
 double multiply_argument(double argument, double factor)
 {
     if (factor == 1)
@@ -59,15 +79,7 @@ double multiply_argument(double argument, double factor)
 
     argument *= factor;
 
-    argument = fmod(argument, TWO_PI);
-
-    if(argument < 0.0)
-        argument += TWO_PI;
-
-    if(argument > PI)
-        argument -= TWO_PI;
-
-    return argument;
+    return convert_to_principal_argument(argument);
 }
 cvt_complex_polar complex_power(cvt_complex_polar z, int power)
 {
@@ -86,10 +98,13 @@ cvt_complex_polar* complex_roots(cvt_complex_polar z, int power)
 
     cvt_complex_polar* roots = malloc(power * sizeof(cvt_complex_polar));
 
+    if(roots == NULL)
+        return NULL;
+
     z.modulus = pow(z.modulus, 1.0/power);
 
     for(int i = 0; i < power; i++)
-    {
-        //*(roots+i) = create_complex_polar(z.modulus, )
-    }
+        *(roots+i) = create_complex_polar(z.modulus,convert_to_principal_argument((z.argument+TWO_PI*i)/power));
+
+    return roots;
 }
