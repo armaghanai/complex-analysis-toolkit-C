@@ -1,7 +1,7 @@
-#include <cvt/complexPolar.h>
-#include <cvt/complex.h>
+#include <complex/complex_polar.h>
 #include <math.h>
-#include <cvt/complexConstants.h>
+#include <stdio.h>
+#include <complex/complex_constants.h>
 #include <stdlib.h>
 
 cvt_complex_polar create_complex_polar(double modulus,double argument)
@@ -14,17 +14,7 @@ cvt_complex_polar create_complex_polar(double modulus,double argument)
 }
 
 
-cvt_complex_polar create_complex_polar_from_cartesian(cvt_complex z)
-{
-    cvt_complex_polar w;
-
-    w.modulus = cvt_modulus(z);
-    w.argument = cvt_argument(z);
-
-    return w;
-}
-
-cvt_complex_polar create_from_string(const char* polar_string)
+cvt_complex_polar create_complex_polar_from_string(const char* polar_string)
 {
 
 }
