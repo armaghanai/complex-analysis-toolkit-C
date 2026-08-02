@@ -18,7 +18,7 @@ cvt_complex create_complex(double real, double imaginary)
 
 bool complex_equals(cvt_complex z1, cvt_complex z2)
 {
-    return is_zero(z1.real-z2.real) && is_zero(z1.imaginary-z2.imaginary);
+    return is_nearly_equal(z1.real,z2.real) && is_nearly_equal(z1.imaginary,z2.imaginary);
 }
 
 cvt_complex complex_from_string(const char* str)
@@ -119,6 +119,18 @@ cvt_complex complex_from_string(const char* str)
 
 void display_complex(cvt_complex z)
 {
+    if (complex_equals(z, COMPLEX_NAN))
+    {
+        printf("NAN");
+        return;
+    }
+
+    if (complex_equals(z, COMPLEX_INFINITY))
+    {
+        printf("INF");
+        return;
+    }
+
     if (is_zero(z.real) && is_zero(z.imaginary))
     {
         printf("0");
@@ -133,9 +145,9 @@ void display_complex(cvt_complex z)
         if (z.imaginary > 0 && !is_zero(z.real))
             printf("+");
 
-        if (is_zero(z.imaginary - 1.0))
+        if (is_nearly_equal(z.imaginary,1))
             printf("i");
-        else if (is_zero(z.imaginary + 1.0))
+        else if (is_nearly_equal(z.imaginary,-1))
             printf("-i");
         else
             printf("%.2fi", z.imaginary);

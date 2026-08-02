@@ -104,8 +104,8 @@ bool complex_polar_equals(cvt_complex_polar z1, cvt_complex_polar z2)
     if (is_zero(z1.modulus) && is_zero(z2.modulus))
         return true;
 
-    return (is_zero(z1.modulus-z2.modulus) && is_zero(
-        convert_to_principal_argument(z1.argument)-convert_to_principal_argument(z2.argument)));
+    return (is_nearly_equal(z1.modulus,z2.modulus) && is_nearly_equal(
+        convert_to_principal_argument(z1.argument),convert_to_principal_argument(z2.argument)));
         //since one complex number can have different agrs so we convert to principal one
         //then compare
 }
@@ -142,37 +142,10 @@ void display_complex_polar(cvt_complex_polar z)
     }
 
 }
+
 cvt_complex_polar complex_square(cvt_complex_polar z)
 {
     return complex_power(z,2);
-}
-
-double convert_to_principal_argument(double argument)
-{
-    // converts any angle in the range of (-PI,PI]
-    argument = fmod(argument, TWO_PI);
-
-    if(argument < 0.0)
-        argument += TWO_PI;
-
-    if(argument > PI)
-        argument -= TWO_PI;
-
-    return argument;
-
-}
-
-double multiply_argument(double argument, double factor)
-{
-    if (factor == 1)
-        return argument;
-
-    if (factor == 0)
-        return 0;
-
-    argument *= factor;
-
-    return convert_to_principal_argument(argument);
 }
 
 cvt_complex_polar complex_polar_multiply(cvt_complex_polar z1, cvt_complex_polar z2)
@@ -212,7 +185,7 @@ cvt_complex_polar complex_polar_divide(cvt_complex_polar z1, cvt_complex_polar z
 cvt_complex_polar complex_polar_conjugate(cvt_complex_polar z)
 {
     return create_complex_polar(z.modulus, 
-        convert_to_principal_argument(-1*z.argument));
+        multiply_argument(z.argument, -1));
 }
 
 cvt_complex_polar complex_power(cvt_complex_polar z, int power)

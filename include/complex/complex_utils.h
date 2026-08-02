@@ -16,6 +16,9 @@ extern "C" {
 
 // Function declarations
 bool is_zero(double);
+double convert_to_principal_argument(double);
+double multiply_argument(double,double);
+bool is_nearly_equal(double, double);
 
 #ifdef __cplusplus
 }
