@@ -1,6 +1,8 @@
 #include <complex/complex_polar.h>
 #include <math.h>
 #include <stdio.h>
+#include <ctype.h>
+#include <errno.h>
 #include <complex/complex_constants.h>
 #include <stdlib.h>
 #include <complex/complex_utils.h>
@@ -14,9 +16,87 @@ cvt_complex_polar create_complex_polar(double modulus,double argument)
     return z;
 }
 
-cvt_complex_polar create_complex_polar_from_string(const char* polar_string)
+cvt_complex_polar create_complex_polar_from_string(const char *str)
 {
+    if (str == NULL)
+        return COMPLEX_NAN_POLAR;
 
+    char *end;
+
+    errno = 0;
+    double modulus = strtod(str, &end);
+
+    if (end == str || errno == ERANGE)
+        return COMPLEX_NAN_POLAR;
+
+    while (isspace((unsigned char)*end))
+        end++;
+
+    if (strncmp(end, "exp(", 4) != 0)
+        return COMPLEX_NAN_POLAR;
+
+    end += 4;
+
+    while (isspace((unsigned char)*end))
+        end++;
+
+    double argument;
+
+    if (*end == 'i')
+    {
+        /* exp(iθ) */
+
+        end++;
+
+        errno = 0;
+        argument = strtod(end, &end);
+
+        if (errno == ERANGE)
+            return COMPLEX_NAN_POLAR;
+    }
+    else
+    {
+        /* exp(θi) */
+
+        errno = 0;
+        argument = strtod(end, &end);
+
+        if (errno == ERANGE)
+            return COMPLEX_NAN_POLAR;
+
+        while (isspace((unsigned char)*end))
+            end++;
+
+        if (*end != 'i')
+            return COMPLEX_NAN_POLAR;
+
+        end++;
+    }
+
+    while (isspace((unsigned char)*end))
+        end++;
+
+    if (*end != ')')
+        return COMPLEX_NAN_POLAR;
+
+    end++;
+
+    while (isspace((unsigned char)*end))
+        end++;
+
+    if (*end != '\0')
+        return COMPLEX_NAN_POLAR;
+
+    if (modulus < 0)
+    {
+        modulus = -modulus;
+        argument += PI;
+    }
+
+    return create_complex_polar(
+        modulus,
+        convert_to_principal_argument(argument)
+    );
 }
 
 bool complex_polar_equals(cvt_complex_polar z1, cvt_complex_polar z2)

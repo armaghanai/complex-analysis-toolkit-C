@@ -200,11 +200,10 @@ cvt_complex cvt_multiply(cvt_complex z1, cvt_complex z2)
     return create_complex(real, imaginary);
 }
 
-cvt_complex cvt_conjugate(cvt_complex z)
+cvt_complex cvt_conjugate(cvt_complex z) //z*
 {
     return create_complex(z.real,-1*z.imaginary);
 }
-
 
 cvt_complex cvt_divide(cvt_complex z1, cvt_complex z2)// z1/z2
 {
