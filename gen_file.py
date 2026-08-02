@@ -12,10 +12,10 @@ if not module:
     print("Error: Module name cannot be empty.")
     exit()
 
-directory = input("Directory [default: cvt]: ").strip()
+directory = input("Directory [default: complex]: ").strip()
 
 if not directory:
-    directory = "cvt"
+    directory = "complex"
 
 #create_test = input("Create test file? [Y/n]: ").strip().lower()
 #create_test = (create_test == "" or create_test == "y")

@@ -11,9 +11,10 @@ typedef struct {
 }cvt_complex;
 
 cvt_complex create_complex(double, double);
-cvt_complex create_from_string(const char*);
+cvt_complex parse_from_string(const char*);
 cvt_complex complex_add(cvt_complex);
 cvt_complex complex_subtract(cvt_complex);
+cvt_complex cvt_multiply_scalar(cvt_complex);
 cvt_complex complex_multiply(cvt_complex);
 cvt_complex complex_divide(cvt_complex);
 cvt_complex complex_conjugate(cvt_complex);

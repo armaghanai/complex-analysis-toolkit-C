@@ -13,6 +13,9 @@ typedef struct {
 cvt_complex_polar create_complex_polar(double,double);
 cvt_complex_polar create_complex_polar_from_string(const char*);
 void display_complex_polar(cvt_complex_polar);
+cvt_complex_polar complex_polar_multiply(cvt_complex_polar, cvt_complex_polar);
+cvt_complex_polar complex_polar_divide(cvt_complex_polar, cvt_complex_polar);
+cvt_complex_polar complex_polar_conjugate(cvt_complex_polar);
 cvt_complex_polar complex_square(cvt_complex_polar);
 cvt_complex_polar complex_power(cvt_complex_polar, int);
 cvt_complex_polar* complex_roots(cvt_complex_polar, int);
