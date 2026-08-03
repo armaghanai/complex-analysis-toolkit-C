@@ -8,10 +8,11 @@ extern "C" {
 // Includes
 #include <stdbool.h>
 
-#define COMPLEX_EPSILON 1e-12
+
 
 
 // Types
+#define COMPLEX_EPSILON 1e-12
 
 
 // Function declarations
