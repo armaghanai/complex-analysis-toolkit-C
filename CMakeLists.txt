@@ -16,65 +16,93 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 
 # --------------------------------------------------------------------
+# Collect Source Files
+# --------------------------------------------------------------------
+
+file(GLOB_RECURSE COMPLEX_ANALYSIS_SOURCES
+    CONFIGURE_DEPENDS
+    "${PROJECT_SOURCE_DIR}/src/*.c"
+)
+
+# --------------------------------------------------------------------
 # Library
 # --------------------------------------------------------------------
 
-add_library(cvt STATIC
-    src/complex/complex_num.c
-    src/complex/complex_polar.c
-    src/complex/complex_conversion.c
-    src/complex/complex_constants.c
+add_library(complex_analysis STATIC
+    ${COMPLEX_ANALYSIS_SOURCES}
 )
 
-target_include_directories(cvt
+target_include_directories(complex_analysis
     PUBLIC
         ${PROJECT_SOURCE_DIR}/include
 )
 
-# Link the math library where required (Linux/MinGW)
-target_link_libraries(cvt
+target_link_libraries(complex_analysis
     PUBLIC
         m
 )
 
 # --------------------------------------------------------------------
-# Test Executable
+# Collect Test Files
 # --------------------------------------------------------------------
 
-add_executable(complex_tests
-    tests/main.c
+file(GLOB_RECURSE TEST_SOURCES
+    CONFIGURE_DEPENDS
+    "${PROJECT_SOURCE_DIR}/tests/*.c"
 )
 
-target_link_libraries(complex_tests
-    PRIVATE
-        cvt
+if(TEST_SOURCES)
+
+    add_executable(complex_tests
+        ${TEST_SOURCES}
+    )
+
+    target_link_libraries(complex_tests
+        PRIVATE
+            complex_analysis
+    )
+
+endif()
+
+# --------------------------------------------------------------------
+# Collect Example Files
+# --------------------------------------------------------------------
+
+file(GLOB
+    EXAMPLE_SOURCES
+    CONFIGURE_DEPENDS
+    "${PROJECT_SOURCE_DIR}/examples/*.c"
 )
 
-# --------------------------------------------------------------------
-# Example Executable
-# --------------------------------------------------------------------
+foreach(example ${EXAMPLE_SOURCES})
 
-# Uncomment this once you create examples/basic.c
-#
-# add_executable(basic_example
-#     examples/basic.c
-# )
-#
-# target_link_libraries(basic_example
-#     PRIVATE
-#         cvt
-# )
+    get_filename_component(example_name ${example} NAME_WE)
+
+    add_executable(${example_name}
+        ${example}
+    )
+
+    target_link_libraries(${example_name}
+        PRIVATE
+            complex_analysis
+    )
+
+endforeach()
 
 # --------------------------------------------------------------------
 # Compiler Warnings
 # --------------------------------------------------------------------
 
 if(MSVC)
-    target_compile_options(cvt PRIVATE /W4)
+
+    target_compile_options(complex_analysis PRIVATE /W4)
+
 else()
-    target_compile_options(cvt PRIVATE
+
+    target_compile_options(complex_analysis PRIVATE
         -Wall
         -Wextra
         -Wpedantic
     )
+
 endif()

@@ -29,8 +29,8 @@ extern const cvt_complex_polar COMPLEX_ZERO_POLAR;
 extern const cvt_complex_polar COMPLEX_ONE_POLAR;
 extern const cvt_complex_polar COMPLEX_I_POLAR;
 
-extern const cvt_complex COMPLEX_NAN_POLAR;
-extern const cvt_complex COMPLEX_INFINITY_POLAR;
+extern const cvt_complex_polar COMPLEX_NAN_POLAR;
+extern const cvt_complex_polar COMPLEX_INFINITY_POLAR;
 
 
 #ifdef __cplusplus

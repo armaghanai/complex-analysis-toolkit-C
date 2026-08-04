@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 #include <errno.h>
 #include <complex/complex_constants.h>
 #include <stdlib.h>
@@ -167,13 +168,13 @@ cvt_complex_polar complex_polar_multiply(cvt_complex_polar z1, cvt_complex_polar
 
 cvt_complex_polar complex_polar_divide(cvt_complex_polar z1, cvt_complex_polar z2)
 {
-    if(complex_equals(z1,COMPLEX_ZERO_POLAR))
+    if(complex_polar_equals(z1,COMPLEX_ZERO_POLAR))
         return COMPLEX_ZERO_POLAR;
 
-    if(complex_equals(z2,COMPLEX_ONE_POLAR))
+    if(complex_polar_equals(z2,COMPLEX_ONE_POLAR))
         return z1;
 
-    if(complex_equals(z2,COMPLEX_ZERO_POLAR))
+    if(complex_polar_equals(z2,COMPLEX_ZERO_POLAR))
         return COMPLEX_INFINITY_POLAR;
 
     double mod = z1.modulus / z2.modulus;
