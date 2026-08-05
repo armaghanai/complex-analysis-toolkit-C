@@ -1,4 +1,3 @@
-D:.
 ```
 │   .gitignore
 │   CHANGELOG.md
@@ -15,14 +14,16 @@ D:.
 │   │   CMakeCache.txt
 │   │   cmake_install.cmake
 │   │   complex_tests.exe
-│   │   libcvt.a
+│   │   libcomplex_analysis.a
 │   │   
 │   └───CMakeFiles
 │       │   cmake.check_cache
+│       │   cmake.verify_globs
 │       │   CMakeConfigureLog.yaml
 │       │   InstallScripts.json
 │       │   rules.ninja
 │       │   TargetDirectories.txt
+│       │   VerifyGlobs.cmake
 │       │   
 │       ├───4.4.0
 │       │   │   CMakeCCompiler.cmake
@@ -35,18 +36,24 @@ D:.
 │       │       │   CMakeCCompilerId.c
 │       │       │   
 │       │       └───tmp
-│       ├───complex_tests.dir
-│       │   └───tests
-│       │           main.c.obj
-│       │           
-│       ├───cvt.dir
+│       ├───complex_analysis.dir
 │       │   └───src
 │       │       └───complex
 │       │               complex_constants.c.obj
 │       │               complex_conversion.c.obj
 │       │               complex_num.c.obj
 │       │               complex_polar.c.obj
+│       │               complex_utils.c.obj
 │       │               
+│       ├───complex_tests.dir
+│       │   └───tests
+│       │           test_complex_num.c.obj
+│       │           test_complex_polar.c.obj
+│       │           test_constants.c.obj
+│       │           test_conversion.c.obj
+│       │           test_main.c.obj
+│       │           test_utils.c.obj
+│       │           
 │       └───pkgRedirects
 ├───docs
 │       api.md
@@ -70,6 +77,11 @@ D:.
 │           complex_utils.c
 │           
 └───tests
-        test_helper.h
-
+        test_complex_num.c
+        test_complex_polar.c
+        test_constants.c
+        test_conversion.c
+        test_helpers.h
+        test_main.c
+        test_utils.c
 ```

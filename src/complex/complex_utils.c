@@ -38,6 +38,13 @@ double multiply_argument(double argument, double factor)
 
 bool is_nearly_equal(double a, double b)
 {
+    // nan is never equal to anything 
+    if (isnan(a) || isnan(b))
+        return false;
+
+    // Handles infinities and exact equality 
+    if(a == b)
+        return true;
     return fabs(a - b) < COMPLEX_EPSILON;
 }
 
