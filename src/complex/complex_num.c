@@ -134,7 +134,7 @@ void display_complex(cvt_complex z)
 
     if (is_zero(z.real) && is_zero(z.imaginary))
     {
-        printf("0");
+        printf("0\n");
         return;
     }
 

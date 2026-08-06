@@ -18,6 +18,8 @@ void test_conjugate(int* p, int* f);
 void test_division(int* p, int* f);
 void test_reciprocal(int* p, int* f);
 void test_display(int* p, int* f);
+void display_create_complex(double,double,int*,int*);
+void test_display(int*,int*);
 
 void test_complex_num(int* total_pass, int* total_fail)
 {
@@ -306,15 +308,30 @@ void test_reciprocal(int* p, int* f)
         COMPLEX_ZERO), p, f, 1);
 }
 
-void test_display(int* p, int* f) 
+void display_create_complex(double real, double img,int* p, int* f) 
 {
     char ch;
-    display_complex(create_complex(3, 4));
+    display_complex(create_complex(real, img));
     printf("Output Correct?: Y/N\n");
     scanf("%c",&ch);
     if(ch == 'y' || ch == 'Y')
         (*p)++;
     else if(ch == 'n' || ch == 'N')
         (*f)++;
+    int c; 
+    while ((c = getchar()) != '\n' && c != EOF);
     
+}
+
+void test_display(int* p, int* f)
+{
+    display_create_complex(3,4,p,f);
+    display_create_complex(-1,0,p,f);
+    display_create_complex(0,-1,p,f);
+    display_create_complex(0,-2,p,f);
+    display_create_complex(0,0,p,f);
+    display_create_complex(-4,-8,p,f);
+    display_create_complex(0,1,p,f);
+    display_create_complex(0,8,p,f);
+    display_create_complex(3,0,p,f);
 }
