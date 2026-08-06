@@ -22,7 +22,7 @@ bool complex_equals(cvt_complex z1, cvt_complex z2)
     return is_nearly_equal(z1.real,z2.real) && is_nearly_equal(z1.imaginary,z2.imaginary);
 }
 
-cvt_complex complex_from_string(const char* str)
+cvt_complex create_from_string(const char* str)
 {
     cvt_complex c = {0.0, 0.0};
     if (!str) return c;
@@ -153,6 +153,7 @@ void display_complex(cvt_complex z)
         else
             printf("%.2fi", z.imaginary);
     }
+    printf("\n");
 }
 
 double cvt_argument(cvt_complex z)
@@ -240,7 +241,7 @@ cvt_complex cvt_divide(cvt_complex z1, cvt_complex z2)// z1/z2
     return create_complex(real, imaginary);
 }
 
-cvt_complex complex_reciprocal(cvt_complex z)
+cvt_complex cvt_reciprocal(cvt_complex z)
 {
     return cvt_divide(COMPLEX_ONE,z);
 }

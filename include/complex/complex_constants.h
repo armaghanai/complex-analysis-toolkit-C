@@ -14,7 +14,8 @@ extern "C" {
 
 #define MINUS_PI (-1.0*PI)
 #define TWO_PI (2.0*PI)
-#define PI_BY_TWO (PI/2)
+#define PI_BY_TWO (PI/2.0)
+#define PI_BY_FOUR (PI/4.0)
 
 #define COMPLEX_EPSILON 1e-12
 
@@ -24,6 +25,7 @@ extern const cvt_complex COMPLEX_I;
 
 extern const cvt_complex COMPLEX_NAN;
 extern const cvt_complex COMPLEX_INFINITY;
+
 
 extern const cvt_complex_polar COMPLEX_ZERO_POLAR;
 extern const cvt_complex_polar COMPLEX_ONE_POLAR;

@@ -16,8 +16,7 @@ cvt_complex_polar create_complex_polar_from_string(const char*);
 bool complex_polar_equals(cvt_complex_polar,cvt_complex_polar);
 void display_complex_polar(cvt_complex_polar);
 cvt_complex_polar complex_square(cvt_complex_polar);
-double convert_to_principal_argument(double);
-double multiply_argument(double,double);
+
 cvt_complex_polar complex_polar_multiply(cvt_complex_polar, cvt_complex_polar);
 cvt_complex_polar complex_polar_divide(cvt_complex_polar, cvt_complex_polar);
 cvt_complex_polar complex_polar_conjugate(cvt_complex_polar);
