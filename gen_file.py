@@ -17,24 +17,24 @@ directory = input("Directory [default: complex]: ").strip()
 if not directory:
     directory = "complex"
 
-#create_test = input("Create test file? [Y/n]: ").strip().lower()
-#create_test = (create_test == "" or create_test == "y")
+create_test = input("Create test file? [Y/n]: ").strip().lower()
+create_test = (create_test == "" or create_test == "y")
 
 include_dir = os.path.join("include", directory)
 src_dir = os.path.join("src", directory)
-#test_dir = "tests"
+test_dir = "tests"
 
 os.makedirs(include_dir, exist_ok=True)
 os.makedirs(src_dir, exist_ok=True)
 
-#if create_test:
-    #os.makedirs(test_dir, exist_ok=True)
+if create_test:
+    os.makedirs(test_dir, exist_ok=True)
 
 guard = make_guard(directory, module)
 
 header_path = os.path.join(include_dir, module + ".h")
 source_path = os.path.join(src_dir, module + ".c")
-#test_path = os.path.join(test_dir, "test_" + module + ".c")
+test_path = os.path.join(test_dir, "test_" + module + ".c")
 
 # ---------------- Header ----------------
 
@@ -82,11 +82,12 @@ else:
 
 # ---------------- Test ----------------
 
-'''if create_test:
+if create_test:
     if not os.path.exists(test_path):
         with open(test_path, "w") as f:
             f.write(f"""#include <stdio.h>
 #include <{directory}/{module}.h>
+#include "../test_helpers.h"
 
 int main(void)
 {{
@@ -97,6 +98,6 @@ int main(void)
 """)
         print("Created:", test_path)
     else:
-        print("Skipped:", test_path, "(already exists)")'''
+        print("Skipped:", test_path, "(already exists)")
 
 print("\nDone!")

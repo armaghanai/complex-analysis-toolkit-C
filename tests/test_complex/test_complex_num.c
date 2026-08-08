@@ -1,4 +1,4 @@
-#include "test_helpers.h"
+#include "../test_helpers.h"
 #include <math.h>
 #include <stdio.h>
 #include <complex/complex_num.h>
@@ -296,6 +296,11 @@ static void test_reciprocal(int* p, int* f)
         cvt_reciprocal(
             create_complex(1, 1)),
         create_complex(0.5, -0.5)), p, f);
+
+    ASSERT(complex_equals(
+        cvt_reciprocal(
+            COMPLEX_ONE),
+            COMPLEX_ONE),p,f);
 
     ASSERT(complex_equals(
         cvt_reciprocal(
