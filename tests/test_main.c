@@ -2,6 +2,7 @@
 //#include <../test_helpers.h>
 
 void test_complex_num(int*, int*);
+void test_complex_polar(int*, int*);
 
 int main(void)
 {
@@ -10,6 +11,7 @@ int main(void)
 
     // Call your test functions here
     test_complex_num(&pass,&fail);
+    test_complex_polar(&pass,&fail);
     printf("\n\nTOTAL TESTS: %d\nPASSED: %d\nFAILED: %d\n",pass+fail,pass,fail);
 
     return 0;

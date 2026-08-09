@@ -102,6 +102,9 @@ cvt_complex_polar create_complex_polar_from_string(const char *str)
 
 bool complex_polar_equals(cvt_complex_polar z1, cvt_complex_polar z2)
 {
+    if(isnan(z1.argument) && isnan(z2.argument) && (z1.modulus == z2.modulus))
+        return true;
+
     if (is_zero(z1.modulus) && is_zero(z2.modulus))
         return true;
 
@@ -115,19 +118,19 @@ void display_complex_polar(cvt_complex_polar z)
 {
     if(complex_polar_equals(z,COMPLEX_INFINITY_POLAR))
     {
-        printf("INF");
+        printf("INF\n");
         return;
     }
 
     if(complex_polar_equals(z,COMPLEX_NAN_POLAR))
     {
-        printf("NAN");
+        printf("NAN\n");
         return;
     }
 
     if(is_zero(z.modulus))
     {
-        printf("0");
+        printf("0\n");
         return;
     }
 
@@ -139,9 +142,9 @@ void display_complex_polar(cvt_complex_polar z)
     if(!is_zero(z.argument))
     {
         printf("exp(i%.2f)",z.argument);
-        return;
     }
 
+    printf("\n");
 }
 
 cvt_complex_polar complex_square(cvt_complex_polar z)

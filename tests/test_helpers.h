@@ -5,10 +5,10 @@
 #include <stdlib.h>
 
 #define ASSERT(expr, passed_ptr, failed_ptr) \
-    ASSERT_EX(expr, passed_ptr, failed_ptr, 0)
+    ASSERT_EX(expr, passed_ptr, failed_ptr, 0)\
 
-#define ASSERT_F(expr, passed_ptr, failed_ptr, fail_flag) \
-    ASSERT_EX(expr, passed_ptr, failed_ptr, fail_flag)
+#define ASSERT_F(expr, passed_ptr, failed_ptr) \
+    ASSERT_EX(expr, passed_ptr, failed_ptr, 1)  \
 
 #define ASSERT_EX(expr, passed_ptr, failed_ptr, fail_flag) \
 do { \

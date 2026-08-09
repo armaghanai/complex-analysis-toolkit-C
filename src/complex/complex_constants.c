@@ -12,11 +12,11 @@ const cvt_complex_polar COMPLEX_ZERO_POLAR = {0.0, 0.0};
 const cvt_complex_polar COMPLEX_ONE_POLAR = {1.0, 0.0};
 const cvt_complex_polar COMPLEX_I_POLAR = {1.0, PI_BY_TWO};
 
-const cvt_complex_polar COMPLEX_POLAR_NAN = {
+const cvt_complex_polar COMPLEX_NAN_POLAR = {
     NAN,
     NAN
 };
-const cvt_complex_polar COMPLEX_POLAR_INFINITY = {
+const cvt_complex_polar COMPLEX_INFINITY_POLAR = {
     INFINITY,
     NAN
 };

@@ -122,13 +122,13 @@ void display_complex(cvt_complex z)
 {
     if (complex_equals(z, COMPLEX_NAN))
     {
-        printf("NAN");
+        printf("NAN\n");
         return;
     }
 
     if (complex_equals(z, COMPLEX_INFINITY))
     {
-        printf("INF");
+        printf("INF\n");
         return;
     }
 
