@@ -22,7 +22,7 @@ create_test = (create_test == "" or create_test == "y")
 
 include_dir = os.path.join("include", directory)
 src_dir = os.path.join("src", directory)
-test_dir = "tests"
+test_dir = "tests/test_"+directory
 
 os.makedirs(include_dir, exist_ok=True)
 os.makedirs(src_dir, exist_ok=True)
@@ -88,10 +88,16 @@ if create_test:
             f.write(f"""#include <stdio.h>
 #include <{directory}/{module}.h>
 #include "../test_helpers.h"
+#include <stdio.h>
 
-int main(void)
+void test_{module}(int* total_pass, int* total_fail)
 {{
+    int pass = 0, fail = 0;
     printf("Testing {module}\\n");
+
+    printf("\\nTotal Tests: %d\\n",pass+fail);
+    *total_pass += pass;
+    *total_fail += fail;
 
     return 0;
 }}
