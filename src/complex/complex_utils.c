@@ -48,5 +48,4 @@ bool is_nearly_equal(double a, double b)
     return fabs(a - b) < COMPLEX_EPSILON;
 }
 
-// Function definitions
 
