@@ -35,9 +35,9 @@ typedef struct {
 
 A complex number is represented as:
 
-[
+$$
 z = a + bi
-]
+$$
 
 where `real = a` and `imaginary = b`.
 
@@ -115,9 +115,9 @@ double cvt_modulus(cvt_complex z);
 
 Calculates the modulus:
 
-[
+$$
 |z| = \sqrt{a^2+b^2}
-]
+$$
 
 ### Returns
 
@@ -135,9 +135,9 @@ Calculates the principal argument of a complex number.
 
 The result is represented in the principal range:
 
-[
+$$
 (-\pi,\pi]
-]
+$$
 
 ---
 
@@ -169,9 +169,9 @@ cvt_complex complex_add(cvt_complex z1, cvt_complex z2);
 
 Adds two complex numbers.
 
-[
+$$
 z_1+z_2
-]
+$$
 
 ---
 
@@ -183,9 +183,9 @@ cvt_complex complex_subtract(cvt_complex z1, cvt_complex z2);
 
 Subtracts `z2` from `z1`.
 
-[
+$$
 z_1-z_2
-]
+$$
 
 ---
 
@@ -207,12 +207,9 @@ cvt_complex complex_multiply(cvt_complex z1, cvt_complex z2);
 
 Multiplies two complex numbers.
 
-[
-(a+bi)(c+di)
-============
-
+$$
 (ac-bd)+(ad+bc)i
-]
+$$
 
 ---
 
@@ -224,9 +221,9 @@ cvt_complex complex_conjugate(cvt_complex z);
 
 Returns the complex conjugate:
 
-[
+$$
 \overline{a+bi}=a-bi
-]
+$$
 
 ---
 
@@ -238,6 +235,10 @@ cvt_complex complex_divide(cvt_complex z1, cvt_complex z2);
 
 Divides `z1` by `z2`.
 
+$$
+\frac{z_1}{z_2}
+$$
+
 ---
 
 ## `complex_reciprocal`
@@ -248,9 +249,9 @@ cvt_complex complex_reciprocal(cvt_complex z);
 
 Returns the reciprocal:
 
-[
+$$
 \frac{1}{z}
-]
+$$
 
 ---
 
@@ -275,14 +276,14 @@ typedef struct {
 
 A complex number is represented as:
 
-[
+$$
 z = re^{i\theta}
-]
+$$
 
 where:
 
-* `modulus` represents (r)
-* `argument` represents (\theta)
+* `modulus` represents $r$
+* `argument` represents $\theta$
 
 ---
 
@@ -353,15 +354,15 @@ Calculates the square of a polar complex number.
 
 For:
 
-[
+$$
 z=re^{i\theta}
-]
+$$
 
 the result is:
 
-[
+$$
 z^2=r^2e^{i2\theta}
-]
+$$
 
 ---
 
@@ -376,12 +377,9 @@ cvt_complex_polar complex_polar_multiply(
 
 Multiplies two polar complex numbers.
 
-[
-r_1e^{i\theta_1}r_2e^{i\theta_2}
-================================
-
-r_1r_2e^{i(\theta_1+\theta_2)}
-]
+$$
+z = re^{i\theta}
+$$
 
 The resulting argument is converted to the principal argument range.
 
@@ -398,14 +396,9 @@ cvt_complex_polar complex_polar_divide(
 
 Divides two polar complex numbers.
 
-[
-\frac{r_1e^{i\theta_1}}
-{r_2e^{i\theta_2}}
-==================
-
-\frac{r_1}{r_2}
-e^{i(\theta_1-\theta_2)}
-]
+$$
+\frac{r_1}{r_2}e^{i(\theta_1-\theta_2)}
+$$
 
 ---
 
@@ -432,13 +425,9 @@ cvt_complex_polar complex_power(
 
 Raises a polar complex number to an integer power.
 
-[
-(re^{i\theta})^n
-================
-
+$$
 r^ne^{in\theta}
-]
-
+$$
 The resulting argument is converted to the principal argument range.
 
 ---
@@ -456,16 +445,18 @@ Calculates all `power` complex roots of `z`.
 
 The roots are:
 
-[
-\sqrt[n]{r}
-e^{i(\theta+2\pi k)/n}
-]
+The roots are:
+
+$$
+\sqrt[n]{r}e^{i(\theta+2\pi k)/n}
+$$
 
 where:
 
-[
+$$
 k=0,1,\ldots,n-1
-]
+$$
+
 
 ### Return value
 
@@ -514,19 +505,18 @@ Converts a polar complex number to Cartesian form.
 
 Given:
 
-[
+$$
 z=re^{i\theta}
-]
+$$
 
 the Cartesian components are:
 
-[
+$$
 a=r\cos(\theta)
-]
-
-[
+$$
+$$
 b=r\sin(\theta)
-]
+$$
 
 ---
 
@@ -542,9 +532,9 @@ Converts a Cartesian complex number to polar form.
 
 The modulus is:
 
-[
+$$
 r=\sqrt{a^2+b^2}
-]
+$$
 
 and the argument is the principal argument of `z`.
 
@@ -646,9 +636,9 @@ double convert_to_principal_argument(double argument);
 
 Converts an angle to the principal argument range:
 
-[
+$$
 (-\pi,\pi]
-]
+$$
 
 Examples:
 
