@@ -496,7 +496,7 @@ static void test_polar_power(int *pass, int *fail)
 
     /* z^0 = 1 */
 
-    result = complex_power(z, 0);
+    result = complex_real_power(z, 0);
 
     ASSERT(
         complex_polar_equals(
@@ -510,7 +510,7 @@ static void test_polar_power(int *pass, int *fail)
 
     /* z^1 = z */
 
-    result = complex_power(z, 1);
+    result = complex_real_power(z, 1);
 
     ASSERT(
         complex_polar_equals(result, z),
@@ -525,7 +525,7 @@ static void test_polar_power(int *pass, int *fail)
      * = 8e^(i3π/4)
      */
 
-    result = complex_power(z, 3);
+    result = complex_real_power(z, 3);
 
     ASSERT(
         is_nearly_equal(result.modulus, 8.0) &&
@@ -540,7 +540,7 @@ static void test_polar_power(int *pass, int *fail)
 
     /* z^2 */
 
-    result = complex_power(z, 2);
+    result = complex_real_power(z, 2);
 
     ASSERT(
         is_nearly_equal(result.modulus, 4.0) &&
@@ -558,7 +558,7 @@ static void test_polar_power(int *pass, int *fail)
      */
 
     result =
-        complex_power(
+        complex_real_power(
             COMPLEX_ZERO_POLAR,
             3
         );
@@ -579,7 +579,7 @@ static void test_polar_power(int *pass, int *fail)
      */
 
     result =
-        complex_power(
+        complex_real_power(
             COMPLEX_ZERO_POLAR,
             0
         );
@@ -597,7 +597,7 @@ static void test_polar_power(int *pass, int *fail)
      */
 
     result =
-        complex_power(
+        complex_real_power(
             COMPLEX_ZERO_POLAR,
             -1
         );

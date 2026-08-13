@@ -149,7 +149,7 @@ void display_complex_polar(cvt_complex_polar z)
 
 cvt_complex_polar complex_square(cvt_complex_polar z)
 {
-    return complex_power(z,2);
+    return complex_real_power(z,2);
 }
 
 cvt_complex_polar complex_polar_multiply(cvt_complex_polar z1, cvt_complex_polar z2)
@@ -192,7 +192,7 @@ cvt_complex_polar complex_polar_conjugate(cvt_complex_polar z)
         multiply_argument(z.argument, -1));
 }
 
-cvt_complex_polar complex_power(cvt_complex_polar z, int power)
+cvt_complex_polar complex_real_power(cvt_complex_polar z, int power)
 {
     if (complex_polar_equals(z, COMPLEX_NAN_POLAR))
         return COMPLEX_NAN_POLAR;

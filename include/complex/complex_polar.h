@@ -20,7 +20,7 @@ cvt_complex_polar complex_square(cvt_complex_polar);
 cvt_complex_polar complex_polar_multiply(cvt_complex_polar, cvt_complex_polar);
 cvt_complex_polar complex_polar_divide(cvt_complex_polar, cvt_complex_polar);
 cvt_complex_polar complex_polar_conjugate(cvt_complex_polar);
-cvt_complex_polar complex_power(cvt_complex_polar, int);
+cvt_complex_polar complex_real_power(cvt_complex_polar, int);
 cvt_complex_polar* complex_roots(cvt_complex_polar, int);
 
 #ifdef __cplusplus
