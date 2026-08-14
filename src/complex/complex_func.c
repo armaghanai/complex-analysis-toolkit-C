@@ -16,7 +16,7 @@ cvt_complex complex_exp(cvt_complex z)
     return create_complex(exp_factor*cos(z.imaginary),exp_factor*sin(z.imaginary));
 }
 
-cvt_complex complex_natural_Log(cvt_complex z)
+cvt_complex complex_principal_log(cvt_complex z)
 {
     if(complex_equals(z,COMPLEX_ZERO))
         return create_complex(-INFINITY,NAN);
@@ -24,7 +24,7 @@ cvt_complex complex_natural_Log(cvt_complex z)
     if(complex_equals(z,COMPLEX_ONE))
         return COMPLEX_ZERO;
 
-    double real = cvt_modulus(z);
+    double real = log(cvt_modulus(z));
     double imaginary = cvt_argument(z);
 
     return create_complex(real, imaginary);
@@ -51,7 +51,7 @@ cvt_complex complex_power(cvt_complex base, cvt_complex power)
     if (complex_equals(power, COMPLEX_ZERO))
         return COMPLEX_ONE;
 
-    return complex_exp(cvt_multiply(power,complex_natural_Log(base)));
+    return complex_exp(cvt_multiply(power,complex_principal_log(base)));
 }
 
 cvt_complex complex_sin(cvt_complex z)

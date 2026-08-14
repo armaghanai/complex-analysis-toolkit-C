@@ -15,7 +15,7 @@ extern "C" {
 // Function declarations
 
 cvt_complex complex_exp(cvt_complex);
-cvt_complex complex_natural_Log(cvt_complex);
+cvt_complex complex_principal_log(cvt_complex);
 cvt_complex complex_power(cvt_complex,cvt_complex);
 
 cvt_complex complex_sin(cvt_complex);

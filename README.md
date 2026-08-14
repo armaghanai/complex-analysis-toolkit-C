@@ -229,6 +229,7 @@ complex-analysis-toolkit-c/
 │   └── complex/
 │       ├── complex_constants.h
 │       ├── complex_conversion.h
+|       ├── complex_func.h
 │       ├── complex_num.h
 │       ├── complex_polar.h
 │       └── complex_utils.h
@@ -237,6 +238,7 @@ complex-analysis-toolkit-c/
 │   └── complex/
 │       ├── complex_constants.c
 │       ├── complex_conversion.c
+|       ├── complex_func.c
 │       ├── complex_num.c
 │       ├── complex_polar.c
 │       └── complex_utils.c
@@ -247,6 +249,7 @@ complex-analysis-toolkit-c/
     │
     └── test_complex/
         ├── test_complex_num.c
+        ├── test_complex_func.c
         ├── test_complex_polar.c
         ├── test_constants.c
         ├── test_conversion.c
