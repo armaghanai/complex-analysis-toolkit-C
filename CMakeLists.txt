@@ -78,6 +78,7 @@ foreach(example ${EXAMPLE_SOURCES})
 
     get_filename_component(example_name ${example} NAME_WE)
 
+    # Standard declaration only
     add_executable(${example_name}
         ${example}
     )

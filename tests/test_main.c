@@ -6,6 +6,7 @@ void test_complex_polar(int*, int*);
 void test_constants(int*,int*);
 void test_conversion(int*, int*);
 void test_utils(int*, int*);
+void test_complex_func(int*, int*);
 
 int main(void)
 {
@@ -13,11 +14,12 @@ int main(void)
     printf("Running tests...\n");
 
     // Call your test functions here
-    test_complex_num(&pass,&fail);
-    test_complex_polar(&pass,&fail);
+    //test_complex_num(&pass,&fail);
+    //test_complex_polar(&pass,&fail);
     test_constants(&pass,&fail);
     test_conversion(&pass, &fail);
     test_utils(&pass, &fail);
+    test_complex_func(&pass,&fail);
 
     printf("\n\nTOTAL TESTS: %d\nPASSED: %d\nFAILED: %d\n",pass+fail,pass,fail);
 

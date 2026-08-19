@@ -98,8 +98,6 @@ void test_{module}(int* total_pass, int* total_fail)
     printf("\\nTotal Tests: %d\\n",pass+fail);
     *total_pass += pass;
     *total_fail += fail;
-
-    return 0;
 }}
 """)
         print("Created:", test_path)
