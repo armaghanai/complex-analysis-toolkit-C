@@ -78,7 +78,7 @@ The project is currently developed and tested using:
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/armaghanai/complex-analysis-toolkit-C.git
 cd complex-analysis-toolkit-c
 ```
 
