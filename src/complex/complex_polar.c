@@ -164,7 +164,7 @@ cvt_complex_polar complex_polar_multiply(cvt_complex_polar z1, cvt_complex_polar
         return z1;
 
     double mod = z1.modulus * z2.modulus;
-    double arg = convert_to_principal_argument(z1.argument+z1.argument);
+    double arg = convert_to_principal_argument(z1.argument+z2.argument);
 
     return create_complex_polar(mod,arg);
 }
